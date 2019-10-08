@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Website</title>
+</head>
+<body>
+	<img src="images/logo.png" width ="160" height="55">
+
+	<div class="menu">
+		<a onclick="move(home)">Home</a>
+		<a onclick="move(thailand1)">Thailand</a>
+		<a onclick="move(vietnam1)">Vietnam</a>
+	</div>	
+		<img id="photo" src="images/home.JPG" width="70%">
+
+		<p id="copyright">Copyright for <b>logo.png</b> is owned by <b>codeit</b>. <br>The rest of the photos are copyright of <b>Moong122</b>.</p>
+
+	<script type="text/javascript">
+		/*
+		 먼저 시도했던 방법 -> 근데 동일한 함수를 반복해주는 것 같아서 다시 수정 
+		function moveHome(){
+			document.getElementById('photo').src = 'images/home.JPG';
+		}
+		function moveThai(){
+			document.getElementById('photo').src = 'images/thailand1.JPG';
+		}
+		function moveViet(){
+			document.getElementById('photo').src = 'images/vietnam1.JPG';
+		}
+		''나 ""이 있으면 문자열로 인식하므로 주의 -> 그래서 +을 사용해서 경로를 표현했다!
+		*/
+		
+		function move(name){
+			document.getElementById('photo').src = 'images/'+name+'.JPG';
+		}
+	</script>
+
+</body>
+</html>
