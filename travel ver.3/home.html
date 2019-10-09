@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Website ver.3</title>
+</head>
+<body>
+	<img src="images/logo.png" width ="160" height="55">
+
+	<div class="menu">
+		<a class="change" id="home" onclick="move('home');">Home</a>
+		<a class="change" id="thailand" onclick="move('thailand');">Thailand</a>
+		<a class="change" id="vietnam" onclick="move('vietnam');">Vietnam</a>
+	</div>	
+		<img id="photo" src="images/home.JPG" width="70%">
+
+		<p id="copyright">Copyright for <b>logo.png</b> is owned by <b>codeit</b>. <br>The rest of the photos are copyright of <b>Moong122</b>.</p>
+
+	<script type="text/javascript">
+		function move(name){
+			document.getElementById('photo').src = 'images/'+name+'.JPG';
+
+			country = document.getElementsByClassName('change');
+			// getElementByClassName은 여러개의 객체를 배열로 가져온다 -> index로 접근 필요!
+
+			for(i of country){ // for-of문은 배열의 value에 직접 접근한다
+				i.style.fontWeight = 'normal';
+				console.log(i);
+				// 자바 스크립트를 처음 공부할때 어디서 오류가 발생했는지 잘 모르겠다면 이렇게 console.log를 통해 확인해보자!
+			}
+			document.getElementById(name).style.fontWeight = 'bold';
+		}
+	</script>
+
+</body>
+</html>
