@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Website ver.4</title>
+</head>
+<body>
+	<img src="images/logo.png" width ="160" height="55">
+
+	<div class="menu">
+		<a class="change" id="home" onclick="move('home');">Home</a>
+		<a class="change" id="thailand" onclick="move('thailand');">Thailand</a>
+		<a class="change" id="vietnam" onclick="move('vietnam');">Vietnam</a>
+	</div>	
+		<img id="photo" src="images/home.JPG" width="70%">
+
+		<p id="copyright">Copyright for <b>logo.png</b> is owned by <b>codeit</b>. <br>The rest of the photos are copyright of <b>Moong122</b>.</p>
+
+	<!-- jQuery 사용하기 -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function move(name){
+			var images = 'images/'+name+'.JPG';
+			$('#photo').attr('src',images);
+
+			// 잘 나오는지 확인!
+			console.log(images);
+			// class에 관한 정보를 배열로 가져온다
+			country = document.getElementsByClassName('change');
+			// 먼저 모든 글씨체를 normal로 바꿔주고
+			for(var i=0;i<country.length;i++){
+				var loopName = '#'+country[i].id;
+				$(loopName).css('font-weight','normal');
+			}
+			// 클릭한 부분만 굵게 바꿔준다
+			var BoldName = '#'+name;
+			$(BoldName).css('font-weight','bold');
+			
+			/*
+			 원래는 moveHome(), moveThai(), moveViet() 다른 함수를 각각 3개 만들어서 하려고 했는데 함수가 많이 필요할 것 같아서 1개로 줄였다
+			 [원래버전 -> moveHome()]
+			 $('#photo').attr('src','images/home.JPG');
+			 $('#home').css('font-weight','bold');
+			 $('#thailand').css('font-weight','normal');
+			 $('#vietnam').css('font-weight','normal');
+
+			 ver.3까지는 금방 만들 수 있었는데 jQuery를 사용하면서 해결하는데 조금 시간이 걸렸다
+			 */
+		}
+	</script>
+
+</body>
+</html>
