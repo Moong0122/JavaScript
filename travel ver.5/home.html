@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Website ver.5</title>
+</head>
+<body>
+	<img src="images/logo.png" width ="160" height="55">
+
+	<div class="menu">
+		<a class="change" id="home" onclick="move('home');">Home</a>
+		<a class="change" id="thailand" onclick="move('thailand');">Thailand</a>
+		<a class="change" id="vietnam" onclick="move('vietnam');">Vietnam</a>
+	</div>	
+		<img id="photo" src="images/home.JPG" width="70%" onmouseenter="mouseEnterPhoto();" onmouseleave="mouseLeavePhoto();">
+
+		<p id="copyright">Copyright for <b>logo.png</b> is owned by <b>codeit</b>. <br>The rest of the photos are copyright of <b>Moong122</b>.</p>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function move(name){
+			var images = 'images/'+name+'.JPG';
+			$('#photo').attr('src',images);
+
+			console.log(images);
+			country = document.getElementsByClassName('change');
+
+			for(var i=0;i<country.length;i++){
+				var loopName = '#'+country[i].id;
+				$(loopName).css('font-weight','normal');
+			}
+
+			var BoldName = '#'+name;
+			$(BoldName).css('font-weight','bold');
+			
+		}
+
+		// 이벤트 핸들링 -> 마우스가 사진에 올라가면 그림자 생기고 마우스가 내려오면 다시 그림자가 사라진다
+		function mouseEnterPhoto() {
+			$('#photo').css('box-shadow','5px 5px 5px');
+		}
+
+		function mouseLeavePhoto() {
+			$('#photo').css('box-shadow','none');
+		}
+	</script>
+
+</body>
+</html>
