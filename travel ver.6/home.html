@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Website ver.6</title>
+</head>
+<body>
+	<img src="images/logo.png" width ="160" height="55">
+
+	<div class="menu">
+		<a class="change" id="home">Home</a>
+		<a class="change" id="thailand">Thailand</a>
+		<a class="change" id="vietnam">Vietnam</a>
+	</div>	
+		<img id="photo" src="images/home.JPG" width="70%">
+
+		<p id="copyright">Copyright for <b>logo.png</b> is owned by <b>codeit</b>. <br>The rest of the photos are copyright of <b>Moong122</b>.</p>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		// 파라미터가 있는 함수를 호출할 때
+		$('#home').on('click',function(){move('home')});
+		$('#thailand').on('click',function(){move('thailand')});
+		$('#vietnam').on('click',function(){move('vietnam')});
+
+		// 파라미터가 필요하지 않는 함수를 호출할 때 -> 그냥 함수명만 적으면 된다!
+		$('#photo').on('mouseenter',mouseEnterPhoto);
+		$('#photo').on('mouseleave',mouseLeavePhoto);
+
+		function move(name){
+			var images = 'images/'+name+'.JPG';
+			$('#photo').attr('src',images);
+
+			console.log(images);
+			country = document.getElementsByClassName('change');
+
+			for(var i=0;i<country.length;i++){
+				var loopName = '#'+country[i].id;
+				$(loopName).css('font-weight','normal');
+			}
+
+			var BoldName = '#'+name;
+			$(BoldName).css('font-weight','bold');
+			
+		}
+		function mouseEnterPhoto() {
+			$('#photo').css('box-shadow','5px 5px 5px');
+		}
+
+		function mouseLeavePhoto() {
+			$('#photo').css('box-shadow','none');
+		}
+	</script>
+
+</body>
+</html>
