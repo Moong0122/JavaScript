@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Couple Calendar</title>
+    <meta charset="utf-8" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="logo" src="images/logo.png" width="157">
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <!-- day-count 바꿔줘야 한다 -->
+        <h2>만난지 <span id="day-count">00</span>일째</h2>
+
+        <div class="img-row">
+          <img src="images/female.png" width="148">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/heart.png" width="16">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/male.png" width="148">
+        </div>
+
+        <div class="date-row">
+          <label for="start">시작일</label>
+          <input type="date" name="start" id="start">
+        </div>
+
+        <button id="calculate" onclick="button_click();">결과 보기</button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      function button_click(){
+        // 처음에 제대로 입력받았는지 if문으로 확인해준다
+        var date = $('#start').val();
+        console.log(date);
+
+        if(date == "")
+          alert("시작 날짜를 입력해주세요!");
+        else{
+          // 1. ms->day 2. 사귄 날부터 1일이므로 소수점 제거 후 +1 해주기
+          var startDate = new Date(date);
+          console.log(startDate);
+          var today = new Date();
+          console.log(today);
+
+          var amount = 0;
+          amount = (today - startDate)/1000/60/60/24;
+          console.log(amount);
+          $('#day-count').text(Math.floor(amount)+1);
+        }
+      }
+    </script>
+  </body>
+</html>
