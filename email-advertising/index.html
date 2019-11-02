@@ -49,10 +49,11 @@
         var secondCheck = false;
         var email_ = document.getElementById('email-input').value;
 
-        if(email_.indexOf('@') == -1 || email_.indexOf('.') == -1){
+        if(email_.indexOf('@') == -1 || email_.lastIndexOf('.') == -1){
             document.getElementById('submit-btn').style.background = '#9E9E9E';
           }else{
-            if(email_.indexOf('@') != -1 && email_.indexOf('@') < email_.indexOf('.'))
+            // @앞과 뒤에 모두 .이 나오면 background color가 안 바뀌는 경우가 있어서 lastIndexOf로 변경!
+            if(email_.indexOf('@') != -1 && email_.indexOf('@') < email_.lastIndexOf('.'))
                 document.getElementById('submit-btn').style.background = '#4D79C2';
           } 
       }
